@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+@keyframes glowing {
+    0% {
+        box-shadow: rgba(60, 60, 60, 0.8) 0px 0px 20px 0px,
+                    rgba(60, 60, 60, 0.4) 0px 0px 30px 0px,
+                    rgba(60, 60, 60, 0.2) 0px 0px 40px 0px;
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: rgba(60, 60, 60, 1) 0px 0px 30px 5px,
+                    rgba(60, 60, 60, 0.6) 0px 0px 50px 10px,
+                    rgba(60, 60, 60, 0.3) 0px 0px 70px 15px;
+        transform: scale(1.05);
+    }
+    100% {
+        box-shadow: rgba(60, 60, 60, 0.8) 0px 0px 20px 0px,
+                    rgba(60, 60, 60, 0.4) 0px 0px 30px 0px,
+                    rgba(60, 60, 60, 0.2) 0px 0px 40px 0px;
+        transform: scale(1);
+    }
+}
+
+@keyframes linkGlow {
+    0%, 100% {
+        text-shadow: 
+            0 0 5px #FFFFFF, 
+            0 0 10px #FFFFFF, 
+            0 0 15px #FFFFFF;
+        transform: scale(1);
+    }
+    50% {
+        text-shadow: 
+            0 0 10px #FFFFFF, 
+            0 0 20px #FFFFFF, 
+            0 0 30px #FFFFFF;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 2px rgba(0, 255, 0, 0.3), 
+                    0 0 5px rgba(0, 255, 0, 0.2), 
+                    0 0 8px rgba(0, 255, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 5px rgba(0, 255, 0, 0.6), 
+                    0 0 10px rgba(0, 255, 0, 0.5), 
+                    0 0 15px rgba(0, 255, 0, 0.4);
+    }
+}
+
+@keyframes pulsate {
+    0%, 100% {
+        text-shadow: 
+            0 0 5px #00FF00,
+            0 0 10px #00FF00,
+            0 0 15px #00FF00;
+        transform: scale(1);
+    }
+    50% {
+        text-shadow: 
+            0 0 15px #00FF00,
+            0 0 30px #00FF00,
+            0 0 45px #00FF00;
+        transform: scale(1.02);
+    }
+}
+
+* {
+    font-family: "JetBrains Mono", monospace;
+    font-style: normal;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom right, #303030, #0a0a0a);
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-height: 100%;
+    overflow: auto;
+}
+
+#top {
+    padding-top: 10vh;
+    margin-bottom: 20px;
+}
+
+#top img {
+    border-radius: 50%;
+    height: 110px;
+    width: 110px;
+    object-fit: cover;
+    animation: glowing 5s infinite;
+    filter: drop-shadow(0px 0px 20px rgba(60, 60, 60, 0.5));
+}
+
+#search {
+    display: flex;
+    justify-content: center;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#left, #right {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    align-items: center;
+    color: #ffffff;
+}
+
+#left {
+    margin-right: 20px;
+}
+
+h2 {
+    margin: 10px 0;
+    color: #00FF00;
+    text-shadow: 
+        0 0 5px #00FF00, 
+        0 0 10px #00FF00, 
+        0 0 15px #00FF00;
+    animation: pulsate 5s infinite;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+#search-form {
+    padding: 10px;
+    border: 2px solid #3c3836;
+    border-radius: 5px;
+    background-color: #282828;
+    color: #ffffff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 20vw;
+    animation: glow 3s infinite alternate;
+}
+
+/* Focus Effect */
+#search-form:focus {
+    outline: none;
+    border-color: #00FF00;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.6);
+    padding: 9px;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+    animation: linkGlow 3s infinite;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #b8bb26;
+    text-shadow: 
+        0 0 10px #b8bb26, 
+        0 0 20px #b8bb26, 
+        0 0 30px #b8bb26;
+}
